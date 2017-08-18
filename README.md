@@ -137,6 +137,14 @@ do {
 
 The statements associated with do...while are always executed at least once.
 
+Arrays can also be initialized in the same line as declaration using curly braces. {}.
+
+```c
+int array[] = {10, 20, 30};
+```
+
+creates array of 3 int elements with values 10, 20, 30.
+
 **Format specifiers**
 
 %c  - char
@@ -162,8 +170,51 @@ int main(void) {
 }
 ```
 
+## Pointers
 
+Address of a variable is a number. Pointer stores the address of a variable and hence can be treated as a number.
 
+Declarting a pointer
+
+```c
+typename *ptrname;
+```
+
+* is indirection operator.
+
+```c
+char *ch1, *ch2;    // ch1 and ch2 are pointers type char
+float *value;     // value is pointer to type float
+```
+
+Pointer is initialized with address-of operator(&).
+
+```c
+pointer = &variable;
+p_value = &value;
+```
+
+*p_rate gives the value of the variable stored.
+
+If `*ptr = &val` then `ptr` and `&val` have the same address location and `*ptr` and `val` contains the same value.
+
+Pointers can be extremely useful for working with arrays. An array name without brackets is actually a pointer to the array. If you declare `data[]` then data is actually the address of the first array element. You can also use `data[0]` to get the address of the first element.
+
+```c
+int array[100], *p_array;
+p_array = array;
+```
+
+p_array is a pointer and can be modified to point elsewhere. array is locked to point at array[0].
+
+Pointer comparison (logical operations >, <, ==) between two pointers that point to the same data type is possible. C compiler doesn't allow multiplication and division operations with pointers.
+
+```c
+*(array) == array[0]
+*(array + 1) == array[1]
+```
+
+Arrays are passed as reference.
 
 
 **Table of Content**
@@ -182,3 +233,9 @@ int main(void) {
 11. [Recursion](basics/recursion.c)
 12. [Printf function](basics/escape.c)
 13. [Array example](basics/expenses.c)
+14. [Multi-dimensional array](basics/scoring.c)
+15. [Random Array](basics/randomarray.c)
+16. [Basic Pointers](basics/pointer.c)
+17. [Pointer types](basics/arraysize.c)
+18. [Pointer arithmetic](basics/ptr_math.c)
+19. [Pass Array to functions](basics/arraypass.c)
