@@ -158,6 +158,7 @@ creates array of 3 int elements with values 10, 20, 30.
 - `puts` function is used to display text messages on the screen. It adds new line at the end automatically.
 
 - `scanf` function is used to take input from the user.
+- Similarly `gets()` can be used to get a string from the user.
 
 ```c
 int main(void) {
@@ -216,6 +217,116 @@ Pointer comparison (logical operations >, <, ==) between two pointers that point
 
 Arrays are passed as reference.
 
+## Characters and Strings
+
+Character can be initialized using single quotes (''). It can be printed using %c format specifier.
+
+```c
+char ch = 'a';
+```
+
+Character array initialization
+
+```c
+char string[10]; // 10 elements of char type.
+char string[10] = {'A', '1', 'a', 'b', 'c', 'd', 'e', 'f', 'm', '\0'};
+char string[10] = "Alabama";    // another method to initialize
+```
+
+The null character ('\0') marks the end of character array or string.
+
+```c
+char *message = "Greate Caesar\'s Ghost!";
+```
+
+This is equivalent to
+
+```c
+char message[] = "Great Caesar\'s Ghost!";
+```
+
+This is compilation time memory allocation (when you know the memory requirements). If program has varying storage needs, depending on user input, you can use malloc() function to allocate storage space on the fly.
+
+malloc() function takes number of bytes of memory needed. It returns an address and its return type is a pointer to type void. void pointer type is compatible with all data types. Memory allocated with malloc() can be used to store any of C's data types. malloc() function is in stdlib header file.
+
+```c
+#include <stdlib.h>
+void *malloc(size_t size);
+```
+
+## Structures
+
+- collection of one or more variables grouped under a single name for easy manipulation. The variables in the structure can be of different types.
+
+```c
+// defining struct
+struct coordinate {
+  int x;
+  int y;
+}
+```
+
+```c
+initialize and create structures on the same statement.
+
+```c
+struct coordinate {
+  int x;
+  int y;
+} first, second;
+// creates two coordinate structs named first, second.
+```
+
+```c
+struct coordinate {
+  int x;
+  int y;
+};
+struct coordinate first, second;
+first.x = 50;
+first.y = 100;
+```
+
+You can assign structs easily like `first = second;`
+
+Initializing structures
+
+```c
+struct sale {
+  char customer[20];
+  char item[20];
+  float amount;
+} mysale = {
+  "Acne Industries",
+  "Left-handed widget",
+  1000.00
+};
+```
+
+For structures that contain another structure list the values in order.
+
+```c
+struct customer {
+  char firm[20];
+  char contact[25];
+}
+
+struct sale {
+  struct customer buyer;
+  char item[20];
+  float amount;
+} mysale = {
+  {
+    "Acne Industries",
+    "George Adams"
+  },
+  "Left-handed widget",
+  1000.00
+};
+```
+
+
+
 
 **Table of Content**
 
@@ -239,3 +350,10 @@ Arrays are passed as reference.
 17. [Pointer types](basics/arraysize.c)
 18. [Pointer arithmetic](basics/ptr_math.c)
 19. [Pass Array to functions](basics/arraypass.c)
+20. [Characters](basics/chartest.c)
+21. [Memory Allocation](basics/mem_alloc.c)
+22. [Taking input string](basics/input.c)
+23. [Simple Structures](basics/simplestruct.c)
+24. [Complex structures](basics/struct.c)
+25. [Structure of arrays](basics/arraystruct.c)
+26. [Array of structure](basics/arrayrecords.c)
