@@ -418,8 +418,35 @@ See [Example](basics/structfunction.c)
 union shared {
   char c;
   int i;
+};
+union shared s;
+```
 
-}
+```c
+union shared {
+  char c;
+  int i;
+} s;
+```
+
+We can also have a union inside a union. Check [this example](basics/union2.c).
+
+## Typedef
+
+We can use `typedef` keyword to create synonym for a structure or union type. For example, we can create synonym for structure as another name (coord).
+
+```c
+typedef struct {
+  int x;
+  int y;
+} coord;
+
+// Now you can use coord to create this struct variables.
+// Here, you don't need to use struct at the beginning.
+// coord becomes like one of the predefined data types.
+coord topleft, bottomright;
+```
+
 
 **Table of Content**
 
@@ -453,3 +480,4 @@ union shared {
 27. [Looping through structure using pointer](basics/pointerloop.c)
 28. [Passing Structure as argument to functions](basics/structfunction.c)
 29. [Union example](basics/union.c)
+30. [Union of union](basics/union2.c)
