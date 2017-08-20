@@ -325,8 +325,101 @@ struct sale {
 };
 ```
 
+### Structures and pointers
 
+We can have pointers as structure members.
 
+```c
+struct data {
+  int *value;
+  int *rate;
+} first;
+
+first.value = &cost;    // first.value points to cost variable
+first.rate = &interest;
+
+*first.value;  // returns the value of cost variable.
+```
+
+```c
+struct msg {
+  char *p1;
+  char *p2;
+} myptrs;
+
+myptrs.p1 = "Learn C with this tutorial";
+myptrs.p2 = "Piyush Patel";
+
+printf("%s", myptrs.p1);  // prints "Learn C with this tutorial"
+```
+
+- We can use strcpy(destination, source) to copy one string to another.
+
+```c
+strcpy(myptrs.p1, "Learn Java");
+```
+
+Using pointers, the memory is allocated dynamically, you don't have to specify how much space is required for this char array. That way, you can save on memory and also don't cause any trouble when you are trying to save string longer than allocated space.
+
+### Pointer to structures
+
+We can create pointers to structures. They are useful when passing structure to a function. Linked list also uses this.
+
+```c
+struct part {
+  short number;
+  char name[10];
+};
+struct part *p_part;
+
+struct part gizmo;
+
+p_part = &gizmo;    // assigns the address of gizmo to p_part
+
+// members can be accessed in two ways.
+(*p_part).number = 100;
+p_part -> number = 200;
+part.number = 300;    // direct access without pointer
+```
+
+### Pointers and array of structures
+
+```c
+struct part {
+  short number;
+  char name[10];
+};
+
+struct part data[100];
+
+struct part *p_part;
+p_part = &data[0];
+
+p_part = data;    // another way to assign address
+
+// to point to the next element in data array we can simplly increment struct part pointer.
+p_part++;   // now points to data[1]
+printf("%d %s", p_part -> number, p_part -> name);
+```
+
+### Passing Structures to functions
+
+We can easily create a pointer to structure and then pass that pointer to function to manipulate member variables.
+
+See [Example](basics/structfunction.c)
+
+## Unions
+
+- similar to structures
+- only one of its members can be used at a time.
+- all the members of a union occupy the same area of memory. (This is memory efficient alternative to structures if you don't need to access all more than one member variable at the same time)
+
+```c
+union shared {
+  char c;
+  int i;
+
+}
 
 **Table of Content**
 
@@ -357,3 +450,6 @@ struct sale {
 24. [Complex structures](basics/struct.c)
 25. [Structure of arrays](basics/arraystruct.c)
 26. [Array of structure](basics/arrayrecords.c)
+27. [Looping through structure using pointer](basics/pointerloop.c)
+28. [Passing Structure as argument to functions](basics/structfunction.c)
+29. [Union example](basics/union.c)
