@@ -1,6 +1,9 @@
 # C Programming
 
-created by Dennis Ritchie at Bell Telephone Laboratories in 1972.
+
+created by Dennis Ritchie at Bell Telephone Laboratories in 1972. It's close to the hardware so it is very fast compared to other languages.
+
+## Basics
 
 - powerful and flexible language
 - portable language
@@ -21,6 +24,10 @@ For example hello.c file can be compiled and run as:
 gcc hello.c
 ./a.out
 `
+
+[Hello world example](basics/hello.c)
+[Getting input](basics/age_year.c)
+[Creating constants in C](basics/const.c)
 
 #include directive instructs the C compiler to add the contents of an incldue file into your profgram during compilation.
 
@@ -44,6 +51,8 @@ gcc hello.c
 || logical OR
 exp1 ? exp2 : exp3 (ternary operator)
 
+[PostIncrement and PreIncrement example](basics/increment.c)
+
 
 In C, true is represented by value 1 and false by value 0.
 
@@ -66,6 +75,47 @@ if(expression) {
 
 Putting semicolon(;) at the end of if statement causes the if clause to end.
 
+[If else example](basics/agechecker.c)
+
+- `break` statement is used to break the loop in the middle of the loop.
+
+```c
+for(count = 0; count < 10; count++) {
+  if(count == 5)
+    break;
+}
+```
+
+- `continue` can be used to continue the loop at a particular index or condition.
+
+```c
+for(count = 0; count < 10; count++) {
+  if(count == 5)
+    continue;
+}
+```
+
+[Continue example](basics/continue.c)
+
+**Switch** statement can be used to make nested if else easier to write and read.
+
+```c
+switch(expression) {
+  case value1:
+    statements;
+    break;
+  case value2:
+    statements2;
+    break;
+  ... ... ...
+  ... ... ...
+  default:
+    statement-n;
+}
+```
+
+To exit a program, we can use exit(statuscode) function.
+
 ## Functions:
 
 A function is a named, independent section of C code that performs a specific task and optionally returns a value to the calling program. Function is not executed until it is called by caller function.
@@ -83,6 +133,8 @@ double square(double number);
 void print_report(int report_number);
 ```
 
+[Simple function example](basics/cube.c)
+
 An argument is an actual value passed to the function by calling function. A parameter is an entry in a function header; it serves as a placeholder for an argument.
 
 All the variables declared in a function are called local variables. A function can return any value using `return` statement.
@@ -97,6 +149,8 @@ inline int toInches(int feet) {
 }
 ```
 
+[Passing parameters in function](basics/roomassign.c)
+
 ## Loops
 
 ```c
@@ -105,11 +159,28 @@ for (initial condition; condition; increment) {
 }
 ```
 
+[For loop](basics/forloop.c)
+[Nested For loop](basics/nested_for.c)
+
 ```c
 while(condition) {
   statements;
 }
 ```
+
+[While loop example](basics/whileloop.c)
+
+do..while loop is executed at least once because the condition is checked only at the end of the first iteration.
+
+```c
+do {
+  statements...
+  ... ... ...
+} while(condition);
+```
+
+[Recursion example](basics/recursion.c)
+[Escape sequences](basics/escape.c)
 
 ## Arrays
 
@@ -145,6 +216,15 @@ int array[] = {10, 20, 30};
 
 creates array of 3 int elements with values 10, 20, 30.
 
+[Array Example](basics/expenses.c)
+[Multi dimensional array](basics/scoring.c)
+[Random array, Random number example](basics/randomarray.c)
+
+### Multidimensional array
+
+[Multidimensional array example](basics/multiarraysize.c)
+[Pointer arithmetic with multidimensional array](basics/multiarraymath.c)
+
 **Format specifiers**
 
 %c  - char
@@ -154,6 +234,7 @@ creates array of 3 int elements with values 10, 20, 30.
 %s  - char arrays
 %u  - unsigned int, unsigned short
 %lu - unsigned long
+%p - pointer
 
 - `puts` function is used to display text messages on the screen. It adds new line at the end automatically.
 
@@ -199,6 +280,8 @@ p_value = &value;
 
 If `*ptr = &val` then `ptr` and `&val` have the same address location and `*ptr` and `val` contains the same value.
 
+[Pointer example](basics/pointer.c)
+
 Pointers can be extremely useful for working with arrays. An array name without brackets is actually a pointer to the array. If you declare `data[]` then data is actually the address of the first array element. You can also use `data[0]` to get the address of the first element.
 
 ```c
@@ -217,6 +300,26 @@ Pointer comparison (logical operations >, <, ==) between two pointers that point
 
 Arrays are passed as reference.
 
+
+[Array with pointer](basics/arraysize.c)
+[Pointer arithmetic](basics/ptr_math.c)
+[Passing array to functions using pointer](basics/arraypass.c)
+[Another example](basics/arraypass2.c)
+
+### Pointer to pointers
+
+```c
+int *ptr;
+ptr = &myVar;
+*ptr = 12;
+int **ptr_to_ptr = &ptr;
+printf("%d", **ptr_to_ptr);
+```
+
+## Passing multidimensional array to function
+
+[Passing multidimensional array](basics/ptrmulti.c)
+
 ## Characters and Strings
 
 Character can be initialized using single quotes (''). It can be printed using %c format specifier.
@@ -232,6 +335,8 @@ char string[10]; // 10 elements of char type.
 char string[10] = {'A', '1', 'a', 'b', 'c', 'd', 'e', 'f', 'm', '\0'};
 char string[10] = "Alabama";    // another method to initialize
 ```
+
+[Character example](basics/chartest.c)
 
 The null character ('\0') marks the end of character array or string.
 
@@ -253,6 +358,9 @@ malloc() function takes number of bytes of memory needed. It returns an address 
 #include <stdlib.h>
 void *malloc(size_t size);
 ```
+
+[Dynamic memory allocation](basics/mem_alloc.c)
+[Taking input form user](basics/input.c)
 
 ## Structures
 
@@ -286,6 +394,8 @@ struct coordinate first, second;
 first.x = 50;
 first.y = 100;
 ```
+
+[Simple structure example](basics/simplestruct.c)
 
 You can assign structs easily like `first = second;`
 
@@ -325,6 +435,10 @@ struct sale {
 };
 ```
 
+[Structure example](basics/struct.c)
+[Structure of arrays](basics/arraystruct.c)
+
+
 ### Structures and pointers
 
 We can have pointers as structure members.
@@ -360,6 +474,8 @@ strcpy(myptrs.p1, "Learn Java");
 ```
 
 Using pointers, the memory is allocated dynamically, you don't have to specify how much space is required for this char array. That way, you can save on memory and also don't cause any trouble when you are trying to save string longer than allocated space.
+
+[Array of structures](basics/records.c)
 
 ### Pointer to structures
 
@@ -406,6 +522,7 @@ printf("%d %s", p_part -> number, p_part -> name);
 
 We can easily create a pointer to structure and then pass that pointer to function to manipulate member variables.
 
+[Pointer loop](basics/pointerloop.c)
 See [Example](basics/structfunction.c)
 
 ## Unions
@@ -421,6 +538,8 @@ union shared {
 };
 union shared s;
 ```
+
+[Union example](basics/union.c)
 
 ```c
 union shared {
@@ -447,6 +566,114 @@ typedef struct {
 coord topleft, bottomright;
 ```
 
+## Scope
+
+Scope refers to the extent to which different parts of a program have access to variable, where variable is visible.
+
+[Example of Scope](basics/scope.c)
+
+- An **external variable** is a variable defined outside of any function. They are also called global variables. The scope of such variables is entire program. When a function uses an external variable, it is good programming practice to declare the variable within the function using the `extern` keyword.
+
+[extern Example](basics/extern.c)
+
+A **local variable** is one that is defined within a function. The scope of such variables is limited to the function in which they are defined. Local variables are automatic by default.
+
+**Static variables** are the one which hold the value even if you move to different function. They don't lose their value after the program is done with the function in which they are defined.
+
+[Static variable example](basics/static.c)
+
+Static external variables are visible to all functions in the same file and can be used by functions in its own file below its point of definition. External variable is viaible to all functions in the file and can be used by functions in other files.
+
+- **Register variable** is used to suggest to compiler that an automatic local variable be stored in a processor register rather than in regular memory. You ask the processor to provide register for this variable and if the variable is not available then it will be treated as an ordinary variable. They are local to a function.
+
+```c
+void func(void)
+{
+  register int x;
+  // additional statements
+}
+```
+
+Variables can also be created inside a block. A block is formed when we use curly braces.
+
+[Block example](basics/block.c)
+
+## Streams
+
+Streams is a sequence of bytes of data. A sequence of bytes flowing into a program is an input stream. This makes input/output programming device-independent. The program sees input/output as a continuous stream of bytes no matter where the input comes from or goes to.
+
+C streams fall into two modes: text and binary. Text streams organized into lines, upto 255 characters, terminated by end-of-line or new line. A binary stream can handle all sorts of data. Binary streams are primarily used with disk files.
+
+**Three standard streams
+| Name | Streams | Device |
+-------|:--------|:-------:|
+|stdin | Standard input | Keyboard |
+|stdout | Standard output | Screen |
+|stderr | Standard error | Screen |
+
+There are usually functions that use standard streams and functions that require stream name. printf() uses standard output stream whereas fprintf() requires stream name. puts() outputs string to standard output stream and fputs() requires stream name.
+
+getchar() - get input from the stdin.
+
+[getchar example](basics/getchar.c)
+[buffer using getchar](basics/getchar2.c)
+
+getch() - get input character from stdin. However, it doesn't echo the character to the stdout as we type them. So, we can't see what we typed. It is in conio.h header file.
+
+[getch example](basics/getch.c)
+
+getche() - similar to getch() except that it echoes input to the screen.
+
+ungetc(int ch, FILE *fp) - unget a character. You can unget only a single character and cannot unget EOF at any time.
+
+gets() - get string from input
+
+char *fgets (char *str, int n, FILE *fp) - returns n number of characters from FILE pointer.
+
+[fgets example](basics/fgets.c)
+
+scanf() - get variable number of arguments. It takes different types of input from the stdin.
+
+When you use scanf(), you need to clear the stdin because those characters which are not assigned to any variable are left in the stdin and will be assigned to next assignment. You can use gets() which can read from stdin up to the end of line.
+
+[Clearing stdin](basics/clearing.c)
+
+We can also use **fflush()** function to clear the buffer. fflush() is generally used with disk files
+
+[fflush example](basics/clearing2.c)
+
+You can also split the input of a number by using %2d or something like that.
+
+For example,
+
+```c
+scanf("%2d%3d", &i, &j);
+```
+
+If we enter 54321 as input, then i = 54, j = 321.
+
+putchar(int c) - print character
+
+[putchar example](basics/putchar.c)
+[Another putchar example](basics/putchar2.c)
+
+putc() and fputc() sends a single character to a specified stream.
+
+[puts example](basics/puts.c)
+
+printf() and fprintf() are used to print formatted output. fprintf() is similar to printf(), except that you can specify the stream to which output is sent.
+
+You can send error message to stderr stream by using fprintf()
+
+```c
+void error_message(char *msg)
+{
+  fprintf(stderr, msg);
+}
+error_message("An error has occured.");
+```
+
+
 
 **Table of Content**
 
@@ -454,30 +681,30 @@ coord topleft, bottomright;
 2. [Age](basics/age_year.c)
 3. [Constants](basics/const.c)
 3. [PostIncrement and PreIncrement](basics/increment.c)
-4. [If Else example](basics/agechecker/main.c)
-5. [Relational operators](basics/realational/main.c)
-6. [Function example](basics/cube.c)
-7. [Room assignment char function](basics/roomassign.c)
-8. [For loop](basics/forloop.c)
-9. [While loop](basics/whileloop.c)
-10. [Nested For loop](basis/nested_for.c)
-11. [Recursion](basics/recursion.c)
-12. [Printf function](basics/escape.c)
-13. [Array example](basics/expenses.c)
-14. [Multi-dimensional array](basics/scoring.c)
-15. [Random Array](basics/randomarray.c)
-16. [Basic Pointers](basics/pointer.c)
-17. [Pointer types](basics/arraysize.c)
-18. [Pointer arithmetic](basics/ptr_math.c)
-19. [Pass Array to functions](basics/arraypass.c)
-20. [Characters](basics/chartest.c)
-21. [Memory Allocation](basics/mem_alloc.c)
-22. [Taking input string](basics/input.c)
-23. [Simple Structures](basics/simplestruct.c)
-24. [Complex structures](basics/struct.c)
-25. [Structure of arrays](basics/arraystruct.c)
-26. [Array of structure](basics/arrayrecords.c)
-27. [Looping through structure using pointer](basics/pointerloop.c)
-28. [Passing Structure as argument to functions](basics/structfunction.c)
-29. [Union example](basics/union.c)
-30. [Union of union](basics/union2.c)
+4. [If Else example](basics/agechecker.c)
+5. [Function example](basics/cube.c)
+6. [Room assignment char function](basics/roomassign.c)
+7. [For loop](basics/forloop.c)
+8. [While loop](basics/whileloop.c)
+9. [Nested For loop](basis/nested_for.c)
+10. [Recursion](basics/recursion.c)
+11. [Printf function](basics/escape.c)
+12. [Array example](basics/expenses.c)
+13. [Multi-dimensional array](basics/scoring.c)
+14. [Random Array](basics/randomarray.c)
+15. [Basic Pointers](basics/pointer.c)
+16. [Pointer types](basics/arraysize.c)
+17. [Pointer arithmetic](basics/ptr_math.c)
+18. [Pass Array to functions](basics/arraypass.c)
+19. [Characters](basics/chartest.c)
+20. [Memory Allocation](basics/mem_alloc.c)
+21. [Taking input string](basics/input.c)
+22. [Simple Structures](basics/simplestruct.c)
+23. [Complex structures](basics/struct.c)
+24. [Structure of arrays](basics/arraystruct.c)
+25. [Array of structure](basics/arrayrecords.c)
+26. [Looping through structure using pointer](basics/pointerloop.c)
+27. [Passing Structure as argument to functions](basics/structfunction.c)
+28. [Union example](basics/union.c)
+29. [Union of union](basics/union2.c)
+30. [Scope Example](basics/scope.c)
