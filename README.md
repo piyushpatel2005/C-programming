@@ -703,7 +703,62 @@ void error_message(char *msg)
 error_message("An error has occured.");
 ```
 
+## Linked List
 
+```c
+struct person {
+  char name[20];
+  struct person *next;
+};
+```
+
+Linked list is a data structure in which the data itself contains pointer to another data of the same type.
+
+Head pointer is a pointer to the first element in the linked list and each added element is added as the first element. Last pointer points to null.
+
+- Creating linked list of person
+
+```c
+struct person {
+  char name[20];
+  struct person *next;  // person struct pointer
+};
+struct person *new;   // each new element will be added with this new structure.
+struct person *head;
+head = NULL;
+new = (person *)malloc(sizeof(struct person));
+new -> next = head;
+head = new;
+```
+
+- How to add element to the end of the list
+
+```c
+current = head;
+while(current -> next != NULL)
+  current = current -> next;
+new = (person *)malloc(sizeof(struct person));
+current -> next = new;
+new -> next = NULL;
+```
+
+- Deleting element from a list
+
+```c
+person *current1, *current2;
+current1 = head;
+current2 = current1 -> next;
+while(current2 -> next != NULL) {
+  current1 = current2;
+  current2 = current1 -> next;
+}
+free(current1 -> next);
+current1 -> next = null;
+if(head == current1)
+  head = null;
+```
+
+[Linked list example](advanced/linkedlist.c)
 
 **Table of Content**
 
