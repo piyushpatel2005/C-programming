@@ -316,9 +316,40 @@ int **ptr_to_ptr = &ptr;
 printf("%d", **ptr_to_ptr);
 ```
 
-## Passing multidimensional array to function
+### Passing multidimensional array to function
 
 [Passing multidimensional array](basics/ptrmulti.c)
+
+[Passing array of pointers to a function](basics/message2.c)
+
+### Array of pointers
+
+We can also create array of pointers. Take a look at [example](basics/nessage,c)
+
+[Sorting program](basics/sort.c)
+
+### Pointer to functions
+
+You must declare a pointer to function before using it. A pointe rto a function must not only be declared, but also initialized to point to something. The only requirement is that its return type and parameter list match the return type and parameter list of pointer declaration.
+
+```c
+float square(float x);
+float (*ptr)(float x);
+float square(float x)
+{
+  return x * x;
+}
+
+ptr = square; // creates pointer to function square
+
+answer = ptr(2.0);
+```
+
+You need to use parantheses around pointer name because indirection operator * has lower precedence than paranthese around parameter list.
+
+[Pointer to function example](basics/ptrfunc.c)
+[Call different functions using pointer](basics/ptrfunc2.c)
+[How to pass pointer to function](basics/passptrfunc.c)
 
 ## Characters and Strings
 
@@ -374,7 +405,6 @@ struct coordinate {
 }
 ```
 
-```c
 initialize and create structures on the same statement.
 
 ```c
