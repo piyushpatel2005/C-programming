@@ -760,6 +760,147 @@ if(head == current1)
 
 [Linked list example](advanced/linkedlist.c)
 
+## Reading and Writing Disk files
+
+For reading and writing files, we use FILE *.
+File path in Windows is given by double slash. (\\)
+`C:\\ProgramFiles\\text.txt`
+
+For UNIX, directory separator is forward slash(/).
+
+To open a file, fopen() function is used.
+
+```c
+FILE *fopen(const char *filename, const char *mode);
+```
+
+**Modes:**
+
+r - Opens file for reading. If file doesn't exist, it returns NULL.
+w - Opens file for writing. If file doesn't exist, it will create. If file already exists, it will delete and create empty file.
+a - Opens file for appending. If file doesn't exist, it will create. If already exists, it will append the content.
+r+ - Opens for reading and writing. If files doesn't exist, it will create.If file already exists, it will overwrite data.
+w+ - Opens file for writing and reading. If doesn't exist, it will create. If already exists, it is overwritten.
+a+ - Open file for appending. If file doesn't exist, it will create. If already exists, the data is append to the end of file.
+
+[File open example](advanced/openfile.c)
+
+For writing to the file, we can use fprintf() function.
+
+```c
+int fprintf("FILE *fp, char *fmt, ...);
+```
+
+[fprintf example](advanced/numberfile.c)
+
+To read data from file, we can use fscanf() function.
+
+```c
+int fscanf(FILE *fp, const char *fmt, ...);
+```
+
+[fscanf Example](advanced/fscanfnums.c)
+
+Functions getc() and fgetc() can be used to input a single character from specified stream.
+
+```c
+int getc(FILE *fp);
+```
+
+To read line of characters from a file, fgets().
+
+```c
+char *fgets(char *str, int n, FILE *fp);
+```
+
+Similarly, to write a character putc() and fputc() can be used.
+
+To write to a file, we can also use fwrite() function.
+and to read fread().
+
+```c
+int fwrite(void *buf, int size, int count, FILE *fp);
+int fread(void *buf, int size, int count, FILE *fp);
+```
+
+[Examples of fwrite and fread](advanced/direct.c)
+
+It is important to close all files once you are finished working with it.
+
+```c
+int fclose(FILE *fp);
+int fcloseall(void);
+```
+
+We can also flush file buffer using:
+
+```c
+int fflush(FILE *fp);
+int flushall(void);
+```
+
+Now, when file is read, file pointer is maintained which points to one byte at a time.
+
+`long ftell(FILE *fp)` - gives the current file position in bytes from the start of the file.
+
+`void rewind(FILE *fp)` - sets the position pointer to the beginning of the file.
+
+[Examples of rewind and ftell](advanced/fileposition.c)
+
+To easily control, file pointer position, we can use fseek() function.
+
+```c
+int fseek(FILE *fp, long offset, int origin);
+```
+
+Here, origin can be any of the following:
+
+SEEK_SET: from the beginning of the file
+SEEK_CUR: from current position
+SEEK_END: from end of the file
+
+[fseek Example](advanced/randomfile.c)
+
+- End of file can be detected using EOF character. or using feof() function which returns 0 if EOF has not been reached.
+
+```c
+while((c = fgetc(fp)) != EOF) {
+
+}
+```
+
+[feof Example](advanced/endoffile.c)
+
+### File Management
+
+- To delete a file, use remove() function.
+
+```c
+int remove(const char *filename);
+```
+
+[file delete example](advanced/filedelete.c)
+
+- To rename a file use
+
+```c
+int rename(const char *oldname, const char *newname);
+```
+
+[File rename example](advanced/filerename.c)
+
+- File copy operation is achieved by opening a file in reading mode and writing mode and copying each byte.
+
+[File copy example](advanced/filecopy.c)
+
+Some programs use temporary files during program execution. These files are files that are unique in name, the name is not important. They are used during program execution and then deleted before the program terminates. The C standard library includes a function tmpnam() that creates a valid filename that doesn't conflict with any existing file.
+
+`char *tmpnam(char *s)`
+
+[Temporary file creation](advanced/tempfile.c)
+
+Temporary files are not automatically deleted.
+
 **Table of Content**
 
 1. [Helloworld](basics/hello.c)
