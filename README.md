@@ -901,6 +901,99 @@ Some programs use temporary files during program execution. These files are file
 
 Temporary files are not automatically deleted.
 
+
+## Strings
+
+- You can use strlen(char * str) method to determine the string length. String ends with '\0' character.
+
+[strlen example](advanced/strlen.c)
+
+- Copy strings using strcpy() function.
+
+[strcpy example](advanced/strcpy.c)
+
+- Function strncpy() can be used to copy n characters from the source to destination.
+
+```c
+char *strncpy(char *destination, char *source, size_t n);
+```
+
+- Two strings can be joined using strcat() function.
+
+[strcat example](advanced/strcat.c)
+
+- Use strncat() to concatenate n characters
+
+[strncat example](advanced/strncat.c)
+
+- Two strings can be compared using strcmp() function.
+
+```c
+int strcmp(const char *str1, const char *str2);
+```
+
+If result is < 0; str1 is less than str2. If = 0; str1 = str2, If > 0; str1 > str2.
+
+[strcmp example](advanced/strcmp.c)
+
+- To compare only specified number of characters, use:
+
+```c
+int strncmp(const char *str1, const char *str2, size_t n);
+```
+
+- strchr() function finds the first occurence of a specified character in a string.
+
+`char *strchr(const char *str, int ch)`.
+
+If ch is not found, NULL is returned.
+
+[strchr example](advanced/strchr.c)
+
+- strcspn() function searches one string for the first occurence of any of the characters in a second string.
+
+```c
+size_t strcspn(const char *str1, const char *str2);
+```
+
+[strcspn example](advanced/strcspn.c)
+
+- strpbrk() function is similar to strcspn() function. However, it does not include terminating null character in comparison.
+
+- strstr() searches for the first occurence of one string within another.
+
+`char *strstr(const char *str1, const char *str2)`
+
+If string is not found, NULL is returned.
+
+[strstr example](advanced/strstr.c)
+
+- String values can be converted to number using:
+
+```c
+int atoi(const char *str);    // if string cannot be converted to number, it will return 0
+long atol(const char *ptr);
+long long atoll(const char *str);
+double atof(const char *str);
+```
+
+[stringtonumber example](advanced/stringtonumber.c)
+
+**Character test functions**
+
+isalnum() - returns TRUE if ch is a letter or a digit.
+isalpha() - is a letter
+isblank() - is a blank
+iscntrl - is a control character.
+isdigit() - is a digit
+isgraph() - if ch is a printing character.
+islower() - is lowercase character
+isprint() - is a printing character
+ispunct() - is punctuation character
+isspace() - is a whitespace character including space, tab, vertical tab, line feed, form feed, carriage return.
+isupper() - is uppercase letter.
+isxdigit() - is a hexadecimal digit.
+
 **Table of Content**
 
 1. [Helloworld](basics/hello.c)
