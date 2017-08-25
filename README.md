@@ -994,6 +994,22 @@ isspace() - is a whitespace character including space, tab, vertical tab, line f
 isupper() - is uppercase letter.
 isxdigit() - is a hexadecimal digit.
 
+## Passing pointers
+
+Variable argument can be passed by value or by reference. When a pointer is passed to a called function, then that can change the original argument in the calling function,
+
+[Pass by reference and value](advanced/passbyref.c)
+
+### void pointer
+
+a void pointer can point to any type of data object. If you declare a function to take a void pointer as an argument, you can pass the function a pointer to anything.
+
+[void pointer example](advanced/voidpointer.c)
+
+- A function can also return pointer.
+
+[pointer return example](advanced/pointerreturn.c)
+
 **Table of Content**
 
 1. [Helloworld](basics/hello.c)
