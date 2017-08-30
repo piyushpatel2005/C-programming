@@ -1010,6 +1010,52 @@ a void pointer can point to any type of data object. If you declare a function t
 
 [pointer return example](advanced/pointerreturn.c)
 
+## C Library functions
+
+### math.h library
+
+double acos(double x) - returns arccosine of its argument
+asin() - returns arcsine of argument.
+atan()
+cos() - returns cosine of its argument
+sin()
+tan()
+exp() - returns exponent of its argument.
+log(double x) - returns natural logarithm of its argument.
+log10(double x) - returns base 10 logarithm
+cosh()
+sinh()
+tanh()
+
+sqrt() - returns square root of argument
+ceil() - returns smallest integer not less than its argument.
+abs() - returns absolute value
+floor() - returns the largest integer not greater than its argument.
+pow(double x, double y) - returns x to the power of y
+fmod(double x, double y) - returns floating point remainder of x/y.
+
+### Error Handling
+
+For handling error, there is asser() macro which ensures that the condition is true.
+
+```c
+void assert(int expression);
+```
+
+If expression is true, assert() does nothing. If it is false, it displays error message on stderr and aborts program execution.
+
+[Assertion example](advanced/assert.c)
+
+For error handling, there is errno.h Header file.
+
+- perror() functions is another way to handle error. It can be used to create custom error messages.
+
+```c
+void perror(const char *msg);
+```
+
+[perror example](advanced/perror.c)
+
 **Table of Content**
 
 1. [Helloworld](basics/hello.c)
