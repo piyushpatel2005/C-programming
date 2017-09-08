@@ -3,6 +3,26 @@
 
 created by Dennis Ritchie at Bell Telephone Laboratories in 1972. It's close to the hardware so it is very fast compared to other languages.
 
+**Table of Contents**
+
+1. [Basics](#basics)
+2. [Conditionals](#conditionals)
+3. [Functions](#functions)
+4. [Loops](#loops)
+5. [Arrays](#arrays)
+6. [Pointers](#pointers)
+7. [Characters and Strings](#characters-and-strings)
+8. [Structures](#structures)
+9. [Unions](#unions)
+10. [Typedef](#typedef)
+11. [Scope](#scope)
+12. [Streams](#streams)
+13. [Linked List](#linked-list)
+14. [Reading and Writing Disk Files](#reading-and-writing-disk-files)
+15. [Strings](#strings)
+16. [Passing Pointers](#passing-pointers)
+17. [C Library Functions](#c-library-functions)
+
 ## Basics
 
 - powerful and flexible language
@@ -1055,37 +1075,3 @@ void perror(const char *msg);
 ```
 
 [perror example](advanced/perror.c)
-
-**Table of Content**
-
-1. [Helloworld](basics/hello.c)
-2. [Age](basics/age_year.c)
-3. [Constants](basics/const.c)
-3. [PostIncrement and PreIncrement](basics/increment.c)
-4. [If Else example](basics/agechecker.c)
-5. [Function example](basics/cube.c)
-6. [Room assignment char function](basics/roomassign.c)
-7. [For loop](basics/forloop.c)
-8. [While loop](basics/whileloop.c)
-9. [Nested For loop](basis/nested_for.c)
-10. [Recursion](basics/recursion.c)
-11. [Printf function](basics/escape.c)
-12. [Array example](basics/expenses.c)
-13. [Multi-dimensional array](basics/scoring.c)
-14. [Random Array](basics/randomarray.c)
-15. [Basic Pointers](basics/pointer.c)
-16. [Pointer types](basics/arraysize.c)
-17. [Pointer arithmetic](basics/ptr_math.c)
-18. [Pass Array to functions](basics/arraypass.c)
-19. [Characters](basics/chartest.c)
-20. [Memory Allocation](basics/mem_alloc.c)
-21. [Taking input string](basics/input.c)
-22. [Simple Structures](basics/simplestruct.c)
-23. [Complex structures](basics/struct.c)
-24. [Structure of arrays](basics/arraystruct.c)
-25. [Array of structure](basics/arrayrecords.c)
-26. [Looping through structure using pointer](basics/pointerloop.c)
-27. [Passing Structure as argument to functions](basics/structfunction.c)
-28. [Union example](basics/union.c)
-29. [Union of union](basics/union2.c)
-30. [Scope Example](basics/scope.c)
